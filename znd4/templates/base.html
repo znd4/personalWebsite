@@ -1,0 +1,17 @@
+<<html>
+    <head>
+        {% if title %}
+        <title>{{ title }} - Zane's World </title>
+        {% else %}
+        <title> Zane's World </title>
+        {% endif %}
+    </head>
+    <body>
+        <div>
+            Zane's World:
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('resume') }}">Resume</a>
+            <a href="{{ url_for('blog') }}">Blog</a>
+        </div>
+    </body>
+</html>
