@@ -13,5 +13,7 @@
             <a href="{{ url_for('resume') }}">Resume</a>
             <a href="{{ url_for('blog') }}">Blog</a>
         </div>
+        <hr>
+        {% block content %}{% endblock %}
     </body>
 </html>
