@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-This is Zane's blog.
+    {% for post in posts %}
+    <div><p> {{ post.title }} <b>{{post.content}}</b></p></div>
+    {% endfor  %}
 {% endblock %}

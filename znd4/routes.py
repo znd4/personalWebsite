@@ -15,5 +15,15 @@ def resume():
 @app.route('/blog')
 def blog():
     user = {'username': 'Zane'}
-    return render_template('blog.html', title='Blog')
+    posts = [
+        {
+            'title': 'Beautiful, Awesome Animals',
+            'content': 'A tale of cute, furry doggos.',
+        },
+        {
+            'title': 'Making Games Matter',
+            'content': 'How we make a website with real blog posts',
+        },
+    ]
+    return render_template('blog.html', title='Blog', posts=posts)
     
