@@ -17,6 +17,12 @@ legacy_tox_ini = """
 [tox]
 envlist = py38
 
+[tox:.package]
+# note tox will use the same python version as under what tox is installed to package
+# so unless this is python 3 you can require a given python version for the packaging
+# environment via the basepython key
+basepython = python3
+
 [testenv]
 whitelist_externals = poetry
 skipsdist = true
