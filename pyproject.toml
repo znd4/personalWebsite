@@ -16,6 +16,7 @@ flask-wtf = "^0.14.3"
 legacy_tox_ini = """
 [tox]
 envlist = py38
+isolated_build = true
 
 [tox:.package]
 # note tox will use the same python version as under what tox is installed to package
@@ -26,7 +27,6 @@ basepython = python3
 [testenv]
 whitelist_externals = poetry
 skipsdist = true
-isolated_build = true
 commands = 
     poetry install
     poetry run black --check
