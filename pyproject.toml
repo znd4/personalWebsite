@@ -19,12 +19,13 @@ envlist = py38
 
 [testenv]
 whitelist_externals = poetry
+skipsdist = true
 isolated_build = true
 commands = 
     poetry install
-    black --check
-    pylint
-    pytest
+    poetry run black --check
+    poetry run pylint
+    poetry run pytest
 """
 
 
