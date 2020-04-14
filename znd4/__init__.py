@@ -1,3 +1,7 @@
+"""Zane Dufour's personal website project.
+This is where we set up our application...
+although maybe we should be doing that somewhere else.
+"""
 from flask import Flask
 from config import Config
 
