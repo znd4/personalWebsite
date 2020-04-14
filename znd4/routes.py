@@ -1,6 +1,7 @@
 """
 This is where we define URLs (routes)
 """
+# pylint: disable=cyclic-import
 from flask import render_template
 from znd4 import app
 
