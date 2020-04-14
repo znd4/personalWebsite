@@ -7,15 +7,17 @@ from znd4 import app
 @app.route('/')
 @app.route('/index')
 def index():
+    """The homepage"""
     return render_template('index.html', title='Home')
 
 @app.route('/resume')
 def resume():
+    """The link to my resume"""
     return render_template('resume.html', title='Resume')
 
 @app.route('/blog')
 def blog():
-    user = {'username': 'Zane'}
+    """The splash page for my blog"""
     posts = [
         {
             'title': 'Beautiful, Awesome Animals',
