@@ -2,6 +2,8 @@ import functools
 
 import nox
 
+nox.options.reuse_existing_virtualenvs = True
+
 
 def poetry_install(func):
     @functools.wraps(func)
