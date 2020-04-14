@@ -1,3 +1,6 @@
+"""
+This is where we define URLs (routes)
+"""
 from flask import render_template
 from znd4 import app
 
@@ -24,4 +27,4 @@ def blog():
         },
     ]
     return render_template('blog.html', title='Blog', posts=posts)
-    
+
