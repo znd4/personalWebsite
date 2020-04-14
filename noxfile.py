@@ -13,7 +13,7 @@ def poetry_install(func):
     return wrapped_func
 
 
-@nox.session(python={"3.8"})
+@nox.session
 @poetry_install
 def lint(session):
     session.run("poetry", "run", "black", "--check", "znd4", external=True)
