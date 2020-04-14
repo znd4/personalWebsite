@@ -12,13 +12,16 @@ def poetry_install(func):
 
     return wrapped_func
 
-@nox.session
+@nox.session(python={"3.8"})
 @poetry_install
 def lint(session):
-    session.run("poetry", "run", "pylint", "znd4")
-    session.run("poetry", "run", "black", "--check", "znd4")
+    session.run("poetry", "run", "pylint", "znd4", external=True)
+    session.run("poetry", "run", "black", "--check", "znd4", external=True)
 
 @nox.session
 @poetry_install
 def test(session):
-    session.run("poetry", "run", "pytest")
+    session.run("poetry", "run", "pytest", external=True)
+
+def poetry(session, *args, **kwargs):
+    return session.run("poetry", *args,)
