@@ -24,7 +24,3 @@ def lint(session):
 @poetry_install
 def test(session):
     session.run("poetry", "run", "pytest", external=True)
-
-
-def poetry(session, *args, **kwargs):
-    return session.run("poetry", *args,)
