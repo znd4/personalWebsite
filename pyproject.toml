@@ -13,6 +13,8 @@ flask-wtf = "^0.14.3"
 nox = "^2019.11.9"
 python-dotenv = "^0.12.0"
 
+[tool.pylint]
+
 
 [tool.tox]
 legacy_tox_ini = """
