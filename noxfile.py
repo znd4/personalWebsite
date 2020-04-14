@@ -6,8 +6,7 @@ import nox
 def poetry_install(func):
     @functools.wraps(func)
     def wrapped_func(session: nox.session, *args, **kwargs):
-        if not nox.options.reuse_existing_virtualenvs:
-            session.run("poetry", "install", external=True)
+        session.run("poetry", "install", external=True)
 
         return func(session)
 
