@@ -2,6 +2,7 @@
 This is where we set up our application...
 although maybe we should be doing that somewhere else.
 """
+# pylint: disable=invalid-name,wrong-import-position
 from flask import Flask
 from config import Config
 
