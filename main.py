@@ -1,5 +1,5 @@
 from znd4 import app, db
-from app.models import User, Post
+from znd4.models import User, Post
 
 
 @app.shell_context_processor
