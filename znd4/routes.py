@@ -2,9 +2,9 @@
 This is where we define URLs (routes)
 """
 # pylint: disable=cyclic-import
-from flask import render_template
-from flask_login import current_user, login_user
-from app.models import User
+from flask import render_template, redirect, url_for
+from flask_login import current_user, login_user, logout_user
+from znd4.models import User
 from znd4 import app
 
 
@@ -35,6 +35,12 @@ def login():
         login_user(user, remember=form.remember_me.data)
         return redirect(url_for("login"))
     return render_template("login.html", title="Sign In", form=form)
+
+
+@app.route("/logout")
+def logout():
+    logout_user
+    return redirect(url_for())
 
 
 @app.route("/blog")
