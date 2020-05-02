@@ -17,6 +17,10 @@
         <a href="{{ url_for('blog') }}">Blog</a>
     </div>
     <hr>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% endif %}
+    {% endwith %}
     {% block content %}{% endblock %}
 </body>
 
