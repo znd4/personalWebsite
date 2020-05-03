@@ -15,7 +15,8 @@ from znd4 import app
 @login_required
 def index():
     """The homepage"""
-    return render_template("index.html", title="Home")
+    posts = [{"author": {"username": "znd4"}, "body": "Gawsh, I love movies!!!"}]
+    return render_template("index.html", title="Home", posts=posts)
 
 
 @app.route("/resume")
