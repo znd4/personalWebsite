@@ -19,7 +19,7 @@ def index():
     return render_template("index.html", title="Home", posts=posts)
 
 
-@app.route("/register")
+@app.route("/register", methods=["GET", "POST"])
 def register():
     """The route/business logic for our registration page."""
     if current_user.is_authenticated:
