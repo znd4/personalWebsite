@@ -6,8 +6,8 @@ from flask import render_template, redirect, flash, url_for, request
 from flask_login import current_user, login_user, logout_user, login_required
 from werkzeug.urls import url_parse
 from znd4.models import User
-from znd4.forms import LoginForm
-from znd4 import app
+from znd4.forms import LoginForm, RegistrationForm
+from znd4 import app, db
 
 
 @app.route("/")
@@ -17,6 +17,23 @@ def index():
     """The homepage"""
     posts = [{"author": {"username": "znd4"}, "body": "Gawsh, I love movies!!!"}]
     return render_template("index.html", title="Home", posts=posts)
+
+
+@app.route("/register")
+def register():
+    """The route/business logic for our registration page."""
+    if current_user.is_authenticated:
+        return redirect(url_for("index"))
+    form = RegistrationForm()
+    if not form.validate_on_submit():
+        return render_template("login.html", title="Register", form=form)
+
+    user = User(username=form.username.data, email=form.email.data)
+    user.set_password(form.password.data)
+    db.session.add(user)
+    db.session.commit()
+    flash("Welcome to the website!")
+    return redirect(url_for("index"))
 
 
 @app.route("/resume")
