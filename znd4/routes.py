@@ -53,6 +53,13 @@ def resume():
     return render_template("resume.html", title="Resume")
 
 
+@app.before_request
+def before_request():
+    if current_user.is_authenticated:
+        current_user.last_seen = datetime.utcnow()
+        db.session.commit()
+
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     """Handle log-ins due to"""
